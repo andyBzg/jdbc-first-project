@@ -17,6 +17,7 @@ public class DatabaseConnection {
         loadProperties();
     }
 
+
     private void loadProperties() {
         String file = "src/main/resources/database.properties";
         try (FileInputStream inputStream = new FileInputStream(file)) {

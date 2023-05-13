@@ -3,8 +3,7 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
 
-        DatabaseConnection databaseConnection =
-                new DatabaseConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "84Kerty34");
+        DatabaseConnection databaseConnection = new DatabaseConnection();
 
         CarDAO carDAO = new CarDAO(databaseConnection);
 

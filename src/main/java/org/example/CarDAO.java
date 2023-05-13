@@ -21,9 +21,8 @@ public class CarDAO {
 
     public List<Car> getAllCars() {
         try (Connection connection = databaseConnection.getConnection();
-             Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery(SELECT_ALL);
-
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(SELECT_ALL)) {
             List<Car> cars = new ArrayList<>();
             while (resultSet.next()) {
                 Car car = extractCarFromResultSet(resultSet);
@@ -37,10 +36,10 @@ public class CarDAO {
     }
 
     public Car getCar(int id) {
+        String query = String.format(SELECT_BY_ID, id);
         try (Connection connection = databaseConnection.getConnection();
-             Statement statement = connection.createStatement()) {
-            String query = String.format(SELECT_BY_ID, id);
-            ResultSet resultSet = statement.executeQuery(query);
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
             resultSet.next();
             return extractCarFromResultSet(resultSet);
         } catch (SQLException e) {

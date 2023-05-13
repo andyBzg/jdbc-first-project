@@ -18,5 +18,6 @@ public class Main {
         carDAO.deleteCar(9);
 
         carDAO.getAllCars().forEach(System.out::println);
+
     }
 }
